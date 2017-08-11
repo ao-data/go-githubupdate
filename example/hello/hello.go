@@ -13,7 +13,7 @@ var (
 func main() {
 	fmt.Printf("Hello to hello go version: %s\n", version)
 
-	u := updater.NewUpdater(version, "pcdummy", "go-githupupdate", "update-")
+	u := updater.NewUpdater(version, "pcdummy", "go-githubupdate", "update-")
 	if err := u.BackgroundUpdater(); err != nil {
 		fmt.Println(err)
 	}

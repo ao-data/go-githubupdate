@@ -59,6 +59,7 @@ func (u *Updater) BackgroundUpdater() error {
 	}
 
 	if available != "" {
+		fmt.Printf("Version %s available", available)
 		err := u.Update()
 		if err != nil {
 			return err
@@ -83,7 +84,7 @@ func (u *Updater) CheckUpdateAvailable() (string, error) {
 
 	current, err := semver.Make(u.CurrentVersion)
 	update, err := semver.Make(*u.latestReleasesResp.TagName)
-	if current.GT(update) {
+	if current.LT(update) {
 		return *u.latestReleasesResp.TagName, nil
 	}
 
@@ -110,12 +111,12 @@ func (u *Updater) Update() error {
 
 	dlURL := *foundAsset.BrowserDownloadURL
 
-	stream, err := u.fetch(dlURL)
+	bin, err := u.fetchGZ(dlURL)
 	if err != nil {
 		return err
 	}
 
-	err, errRecover := up.FromStream(stream)
+	err, errRecover := up.FromStream(bytes.NewReader(bin))
 	if errRecover != nil {
 		return fmt.Errorf("update and recovery errors: %q %q", err, errRecover)
 	}
@@ -142,7 +143,7 @@ func (u *Updater) fetch(url string) (io.ReadCloser, error) {
 	return readCloser, nil
 }
 
-func (u *Updater) fetchBin(url string) ([]byte, error) {
+func (u *Updater) fetchGZ(url string) ([]byte, error) {
 	r, err := u.fetch(url)
 	if err != nil {
 		return nil, err
