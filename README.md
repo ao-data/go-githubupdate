@@ -25,6 +25,16 @@ if err := u.BackgroundUpdater(); err != nil {
 }
 ```
 
+### Upload gzip compressed binaries to github releases
+
+An update is as easy as creating a new release on Github with the version Number as title
+and the binaries named like:
+
+- update-linux-amd64.gz
+- update-darwin-amd64.gz
+- update-windows-amd64.exe.gz
+
+
 ## License
 
 MIT
