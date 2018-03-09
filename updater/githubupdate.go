@@ -25,7 +25,7 @@ const (
 )
 
 var (
-	ErrorNoBinary        = errors.New("no binary for the update found")
+	ErrorNoBinary        = errors.New("No binary for the update found")
 	defaultHTTPRequester = HTTPRequester{}
 	up                   = update.New()
 )
@@ -59,7 +59,7 @@ func (u *Updater) BackgroundUpdater() error {
 	}
 
 	if available != "" {
-		fmt.Printf("Version %s available", available)
+		fmt.Printf("Version %s available, installing now.\n", available)
 		err := u.Update()
 		if err != nil {
 			return err
@@ -118,11 +118,12 @@ func (u *Updater) Update() error {
 
 	err, errRecover := up.FromStream(bytes.NewReader(bin))
 	if errRecover != nil {
-		return fmt.Errorf("update and recovery errors: %q %q", err, errRecover)
+		return fmt.Errorf("Update and recovery errors: %q %q", err, errRecover)
 	}
 	if err != nil {
 		return err
 	}
+	fmt.Println("Update installed, please restart the program.")
 	return nil
 }
 
