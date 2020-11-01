@@ -99,7 +99,7 @@ func (u *Updater) Update() error {
 	var foundAsset github.ReleaseAsset
 	for _, asset := range u.latestReleasesResp.Assets {
 		if *asset.Name == reqFilename {
-			foundAsset = asset
+			foundAsset = *asset
 			break
 		}
 	}
