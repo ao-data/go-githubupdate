@@ -15,7 +15,7 @@ Self update with github releases. Inspired by [go-selfupdate](https://github.com
 ```go
 u := updater.NewUpdater(
     version,                // Current version
-    "broderickhyman",       // Your organization or user
+    "ao-data",       // Your organization or user
     "go-githubupdate",      // Your repo
     "update-",              // Prefix for the files, full name will be eg: update-linux-amd64.gz, update-windows-amd64.exe.gz
 )
