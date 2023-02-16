@@ -1,4 +1,4 @@
-module github.com/broderickhyman/go-githubupdate
+module github.com/ao-data/go-githubupdate
 
 go 1.16
 

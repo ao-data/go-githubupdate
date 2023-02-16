@@ -34,7 +34,7 @@ var (
 //
 type Updater struct {
 	CurrentVersion     string    // Currently running version.
-	GithubOwner        string    // The owner of the repo like "broderickhyman"
+	GithubOwner        string    // The owner of the repo like "ao-data"
 	GithubRepo         string    // The repository like "go-githubupdate"
 	FilePrefix         string    // A prefix like "update-" for the binaries to indicate these are updater files.
 	Requester          Requester //Optional parameter to override existing http request handler
