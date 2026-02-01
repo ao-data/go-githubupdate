@@ -14,7 +14,11 @@ func main() {
 	fmt.Printf("Hello to hello go version: %s\n", version)
 
 	u := updater.NewUpdater(version, "ao-data", "go-githubupdate", "update-")
-	if err := u.BackgroundUpdater(); err != nil {
+	updated, err := u.BackgroundUpdater()
+	if err != nil {
 		fmt.Println(err)
+	}
+	if updated {
+		fmt.Println("Application was updated, please restart.")
 	}
 }

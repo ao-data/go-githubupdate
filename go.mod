@@ -1,12 +1,16 @@
 module github.com/ao-data/go-githubupdate
 
-go 1.16
+go 1.22
 
 require (
-	github.com/blang/semver v3.5.1+incompatible
-	github.com/google/go-github v17.0.0+incompatible
+	github.com/blang/semver/v4 v4.0.0
+	github.com/google/go-github/v68 v68.0.0
+	github.com/minio/selfupdate v0.6.0
+)
+
+require (
+	aead.dev/minisign v0.2.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
-	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0 // indirect
-	github.com/kr/binarydist v0.1.0 // indirect
-	gopkg.in/inconshreveable/go-update.v0 v0.0.0-20150814200126-d8b0b1d421aa
+	golang.org/x/crypto v0.0.0-20211209193657-4570a0811e8b // indirect
+	golang.org/x/sys v0.0.0-20210615035016-665e8c7367d1 // indirect
 )
