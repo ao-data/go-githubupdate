@@ -233,7 +233,7 @@ func TestFetchWithNilRequester(t *testing.T) {
 	// Requester is nil, should use defaultHTTPRequester
 
 	// This will make an actual HTTP request and fail, but proves the code path works
-	_, err := u.fetch("http://localhost:99999/nonexistent")
+	_, err := u.fetch("http://nonexistent.invalid/")
 	if err == nil {
 		t.Fatal("expected error for invalid URL")
 	}

@@ -63,7 +63,7 @@ func TestHTTPRequesterFetchNon200(t *testing.T) {
 
 func TestHTTPRequesterFetchInvalidURL(t *testing.T) {
 	requester := HTTPRequester{}
-	_, err := requester.Fetch("http://localhost:99999/invalid")
+	_, err := requester.Fetch("http://nonexistent.invalid/")
 	if err == nil {
 		t.Fatal("expected error for invalid URL")
 	}
